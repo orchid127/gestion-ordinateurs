@@ -1,4 +1,4 @@
-name: xxxxxxxxxx
+name: building-app
 
 on:
   workflow_dispatch:
