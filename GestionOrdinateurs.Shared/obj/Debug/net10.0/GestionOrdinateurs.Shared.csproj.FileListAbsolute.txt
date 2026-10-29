@@ -1,0 +1,11 @@
+/home/habenaria/Documents/school/2026-2027/c-sharp-dot-net/GestionOrdinateurs/GestionOrdinateurs.Shared/bin/Debug/net10.0/GestionOrdinateurs.Shared.deps.json
+/home/habenaria/Documents/school/2026-2027/c-sharp-dot-net/GestionOrdinateurs/GestionOrdinateurs.Shared/bin/Debug/net10.0/GestionOrdinateurs.Shared.dll
+/home/habenaria/Documents/school/2026-2027/c-sharp-dot-net/GestionOrdinateurs/GestionOrdinateurs.Shared/bin/Debug/net10.0/GestionOrdinateurs.Shared.pdb
+/home/habenaria/Documents/school/2026-2027/c-sharp-dot-net/GestionOrdinateurs/GestionOrdinateurs.Shared/obj/Debug/net10.0/GestionOrdinateurs.Shared.GeneratedMSBuildEditorConfig.editorconfig
+/home/habenaria/Documents/school/2026-2027/c-sharp-dot-net/GestionOrdinateurs/GestionOrdinateurs.Shared/obj/Debug/net10.0/GestionOrdinateurs.Shared.AssemblyInfoInputs.cache
+/home/habenaria/Documents/school/2026-2027/c-sharp-dot-net/GestionOrdinateurs/GestionOrdinateurs.Shared/obj/Debug/net10.0/GestionOrdinateurs.Shared.AssemblyInfo.cs
+/home/habenaria/Documents/school/2026-2027/c-sharp-dot-net/GestionOrdinateurs/GestionOrdinateurs.Shared/obj/Debug/net10.0/GestionOrdinateurs.Shared.csproj.CoreCompileInputs.cache
+/home/habenaria/Documents/school/2026-2027/c-sharp-dot-net/GestionOrdinateurs/GestionOrdinateurs.Shared/obj/Debug/net10.0/GestionOrdinateurs.Shared.dll
+/home/habenaria/Documents/school/2026-2027/c-sharp-dot-net/GestionOrdinateurs/GestionOrdinateurs.Shared/obj/Debug/net10.0/refint/GestionOrdinateurs.Shared.dll
+/home/habenaria/Documents/school/2026-2027/c-sharp-dot-net/GestionOrdinateurs/GestionOrdinateurs.Shared/obj/Debug/net10.0/GestionOrdinateurs.Shared.pdb
+/home/habenaria/Documents/school/2026-2027/c-sharp-dot-net/GestionOrdinateurs/GestionOrdinateurs.Shared/obj/Debug/net10.0/ref/GestionOrdinateurs.Shared.dll

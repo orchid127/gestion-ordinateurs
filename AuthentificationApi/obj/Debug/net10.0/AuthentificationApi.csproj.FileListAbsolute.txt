@@ -1,0 +1,8 @@
+/home/habenaria/Documents/school/2026-2027/c-sharp-dot-net/GestionOrdinateurs/AuthentificationApi/obj/Debug/net10.0/AuthentificationApi.csproj.AssemblyReference.cache
+/home/habenaria/Documents/school/2026-2027/c-sharp-dot-net/GestionOrdinateurs/AuthentificationApi/obj/Debug/net10.0/rpswa.dswa.cache.json
+/home/habenaria/Documents/school/2026-2027/c-sharp-dot-net/GestionOrdinateurs/AuthentificationApi/obj/Debug/net10.0/AuthentificationApi.GeneratedMSBuildEditorConfig.editorconfig
+/home/habenaria/Documents/school/2026-2027/c-sharp-dot-net/GestionOrdinateurs/AuthentificationApi/obj/Debug/net10.0/AuthentificationApi.AssemblyInfoInputs.cache
+/home/habenaria/Documents/school/2026-2027/c-sharp-dot-net/GestionOrdinateurs/AuthentificationApi/obj/Debug/net10.0/AuthentificationApi.AssemblyInfo.cs
+/home/habenaria/Documents/school/2026-2027/c-sharp-dot-net/GestionOrdinateurs/AuthentificationApi/obj/Debug/net10.0/AuthentificationApi.csproj.CoreCompileInputs.cache
+/home/habenaria/Documents/school/2026-2027/c-sharp-dot-net/GestionOrdinateurs/AuthentificationApi/obj/Debug/net10.0/AuthentificationApi.MvcApplicationPartsAssemblyInfo.cs
+/home/habenaria/Documents/school/2026-2027/c-sharp-dot-net/GestionOrdinateurs/AuthentificationApi/obj/Debug/net10.0/AuthentificationApi.MvcApplicationPartsAssemblyInfo.cache
