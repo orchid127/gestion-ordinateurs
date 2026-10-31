@@ -69,7 +69,7 @@ jobs:
         run: docker build -t ${{ env.DOCKER_REGISTRY }}/gestionordinateursclient:latest -f GestionOrdinateurs.Client/Dockerfile .
 
       - name: Push GestionOrdinateurs.Client
-        run: docker push ${{ env.DOCKER_REGISTRY }}/gestionordinateursclientlatest
+        run: docker push ${{ env.DOCKER_REGISTRY }}/gestionordinateursclient:latest
 
       - name: Build GestionOrdinateurs.Gateway
         run: docker build -t ${{ env.DOCKER_REGISTRY }}/gestionordinateursgateway:latest -f GestionOrdinateurs.Gateway/Dockerfile .
