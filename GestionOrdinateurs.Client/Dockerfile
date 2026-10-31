@@ -12,7 +12,7 @@ RUN dotnet restore ./GestionOrdinateurs.Shared
 
 # Copy the remaining source code
 COPY . .
-RUN dotnet publish ./GestionOrdinateurs.Client -c Release -o out
+RUN dotnet publish ./GestionOrdinateurs.Client -c Release -o /app/publish
 
 # Build runtime image
 FROM nginx:alpine
