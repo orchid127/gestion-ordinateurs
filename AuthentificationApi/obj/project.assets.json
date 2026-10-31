@@ -328,6 +328,16 @@
             "related": ".xml"
           }
         }
+      },
+      "GestionOrdinateurs.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/GestionOrdinateurs.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GestionOrdinateurs.Shared.dll": {}
+        }
       }
     }
   },
@@ -1009,10 +1019,16 @@
         "system.identitymodel.tokens.jwt.8.19.2.nupkg.sha512",
         "system.identitymodel.tokens.jwt.nuspec"
       ]
+    },
+    "GestionOrdinateurs.Shared/1.0.0": {
+      "type": "project",
+      "path": "../GestionOrdinateurs.Shared/GestionOrdinateurs.Shared.csproj",
+      "msbuildProject": "../GestionOrdinateurs.Shared/GestionOrdinateurs.Shared.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "GestionOrdinateurs.Shared >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 10.0.14",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 10.0.14",
       "Microsoft.AspNetCore.OpenApi >= 10.0.12",
@@ -1044,7 +1060,11 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/home/habenaria/Documents/school/2026-2027/c-sharp-dot-net/GestionOrdinateurs/GestionOrdinateurs.Shared/GestionOrdinateurs.Shared.csproj": {
+              "projectPath": "/home/habenaria/Documents/school/2026-2027/c-sharp-dot-net/GestionOrdinateurs/GestionOrdinateurs.Shared/GestionOrdinateurs.Shared.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

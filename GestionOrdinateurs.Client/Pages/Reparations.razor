@@ -1,0 +1,46 @@
+@page "/reparation"
+
+@inject HttpClient Http
+
+<PageTitle>Reparations</PageTitle>
+
+<h1>Reparations</h1>
+
+@if (historique == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom ordinateur</th>
+                <th aria-label="">Type réparation</th>
+                <th aria-label="">Début</th>
+                <th>Technicien</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var h in historique)
+            {
+                <tr>
+                    <td>@h.NomOrdinateur</td>
+                    <td>@h.TypeReparation</td>
+                    <td>@h.DateIntervention.ToString("dd/MM/yyyy")</td>
+                    <td>@h.Technicien</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<HistoriqueReparationRecord>? historique;
+
+    protected override async Task OnInitializedAsync()
+    {
+        historique = await
+Http.GetFromJsonAsync<List<HistoriqueReparationRecord>>("http://localhost:5010/api/reparation/historique");
+    }
+}

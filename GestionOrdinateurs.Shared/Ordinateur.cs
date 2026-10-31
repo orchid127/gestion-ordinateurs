@@ -19,8 +19,9 @@ public class Ordinateur
     public EtatOrdinateur Etat { get; set; }
     public int Stock { get; set; } = 0;
     public double Prix { get; set; } = 0.0;
+    public bool Vendu { get; set; } = false;
 
-    public Caracteristiques Caracteristiques { get; set; }
+    public Caracteristiques? Caracteristiques { get; set; }
 
     public List<Reparation> Reparations { get; set; } = new();
 }

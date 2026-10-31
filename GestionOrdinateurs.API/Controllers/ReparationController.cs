@@ -30,6 +30,7 @@ public class ReparationController : ControllerBase
     {
         var listeReparation = await _reparService.ListerReparations();
         listeReparation.ForEach(AfficherReparation);
+        _logger.LogInformation($"{listeReparation.Count()}");
 
         return Ok(listeReparation);
     }

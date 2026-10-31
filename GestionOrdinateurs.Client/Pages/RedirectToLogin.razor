@@ -1,0 +1,12 @@
+@inject NavigationManager Navigation
+@inject IJSRuntime JS
+
+@code
+{
+    protected override async Task OnInitializedAsync()
+    {
+        await JS.InvokeVoidAsync("alert", "Veuillez vous connecter pour accéder à cette page.");
+
+        Navigation.NavigateTo("/login", true);
+    }
+}

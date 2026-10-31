@@ -1,7 +1,10 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace GestionOrdinateurs.Shared;
 
 public class Reparation
 {
+    [Key]
     public int Id { get; init; }
 
     public Ordinateur? UnOrdinateur { get; set; }

@@ -15,7 +15,7 @@ namespace GestionOrdinateurs.API.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "10.0.12");
+            modelBuilder.HasAnnotation("ProductVersion", "10.0.14");
 
             modelBuilder.Entity("GestionOrdinateurs.Shared.Ordinateur", b =>
                 {
@@ -34,6 +34,9 @@ namespace GestionOrdinateurs.API.Migrations
                         .HasColumnType("REAL");
 
                     b.Property<int>("Stock")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("Vendu")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
@@ -115,8 +118,7 @@ namespace GestionOrdinateurs.API.Migrations
                                 .HasForeignKey("OrdinateurId");
                         });
 
-                    b.Navigation("Caracteristiques")
-                        .IsRequired();
+                    b.Navigation("Caracteristiques");
                 });
 
             modelBuilder.Entity("GestionOrdinateurs.Shared.Reparation", b =>

@@ -1,0 +1,46 @@
+@page "/ordinateur"
+
+@inject HttpClient Http
+
+<PageTitle>Ordinateurs</PageTitle>
+
+<h1>Ordinateurs</h1>
+
+@if (ordinateurs == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th aria-label="">Prix</th>
+                <th aria-label="">Devise</th>
+                <th>Vendu</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ordi in ordinateurs)
+            {
+                <tr>
+                    <td>@ordi.Nom</td>
+                    <td>@ordi.Prix</td>
+                    <td>€</td>
+                    <td>@(ordi.Vendu ? "Oui" : "Non")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+@code {
+    private List<Ordinateur> ordinateurs;
+
+    protected override async Task OnInitializedAsync()
+    {
+        ordinateurs = await Http.GetFromJsonAsync<List<Ordinateur>>("http://localhost:5010/api/ordinateurs");
+    }
+}

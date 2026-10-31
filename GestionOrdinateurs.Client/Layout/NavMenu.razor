@@ -1,4 +1,9 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@inject NavigationManager Navigation
+@inject Blazored.SessionStorage.ISessionStorageService SessionStorage
+@inject IJSRuntime JS
+@inject JwtAuthenticationStateProvider AuthProvider
+
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">GestionOrdinateurs.Client</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
@@ -24,6 +29,27 @@
                 <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
             </NavLink>
         </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="ordinateur">
+                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Ordinateurs
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="reparation">
+                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Reparations
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="login">
+                <span class="bi bi-person-circle" aria-hidden="true"></span> Connexion
+            </NavLink>
+        </div>
+        <div>
+            <button class="btn btn-link nav-link" @onclick="Logout">
+                <span class="bi bi-box-arrow-right"></span>
+                Déconnexion
+            </button>
+        </div>
     </nav>
 </div>
 
@@ -35,5 +61,13 @@
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
+    }
+
+    private async Task Logout()
+    {
+        await SessionStorage.ClearAsync();
+        await JS.InvokeVoidAsync("alert", "Vous avez été déconnecté avec succès. Paramètres de session effacés.");
+        AuthProvider.NotifyUserLogout();
+        Navigation.NavigateTo("/", true);
     }
 }

@@ -7,14 +7,6 @@ public class ReparationService : IReparationService
 {
     private readonly ParcInformatiqueContext _context;
 
-    public record HistoriqueReparationRecord(
-        int OrdinateurId,
-        string NomOrdinateur,
-        string Technicien,
-        string TypeReparation,
-        DateTime DateIntervention
-    );
-
     public ReparationService(ParcInformatiqueContext context)
     {
         _context = context;
@@ -25,17 +17,20 @@ public class ReparationService : IReparationService
         // Création object reparation (test)
         // verifie que l'ordinateur est en base
         Ordinateur? ordi = _context.Ordinateurs.Find(ordinateur.Id);
+        if (ordi == null) return;
 
+        //Méthode de création d'une réparation en base. (à créér par vous)
         Reparation test = new Reparation
         {
             UnOrdinateur = ordi,
             TypeReparation = "Changement batteries",
             DateDebut = DateTime.Now,
-            Statut = "En cours"
+            Statut = "En cours",
+            Technicien = "Kimberley"
         };
         var newReparation = await _context.Reparations.AddAsync(test);
+        await _context.SaveChangesAsync();
 
-        //Méthode de création d'une réparation en base. (à créér par vous)
         await Task.Delay(2000);
         newReparation.Entity.Statut = "Terminée"; // chnage le statut de la réparation en base
         await _context.SaveChangesAsync();
@@ -44,9 +39,7 @@ public class ReparationService : IReparationService
 
     public async Task<List<Reparation>> ListerReparations()
     {
-        var listeReparations = await _context.Reparations.ToListAsync();
-
-        return listeReparations;
+        return await _context.Reparations.ToListAsync(); //on récupère les informations de l'ordinateur réparé en même temps
     }
 
     public async Task<List<HistoriqueReparationRecord>> ListerHistorique()

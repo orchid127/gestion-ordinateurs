@@ -1,0 +1,27 @@
+@page "/login"
+
+@inject Blazored.SessionStorage.ISessionStorageService SessionStorage
+@inject NavigationManager Navigation
+@inject JwtAuthenticationStateProvider AuthProvider
+
+<PageTitle>Login</PageTitle>
+
+<h1>Login</h1>
+
+<InputText @bind-Value="Token" class="form-control" />
+
+<button class="btn btn-primary mt-2" @onclick="SaveToken">
+    Connecter
+</button>
+
+@code
+{
+    private string Token = "";
+
+    private async Task SaveToken()
+    {
+        await SessionStorage.SetItemAsync("jwtToken", Token);
+        AuthProvider.NotifyUserAuthentication(Token);
+        Navigation.NavigateTo("/");
+    }
+}

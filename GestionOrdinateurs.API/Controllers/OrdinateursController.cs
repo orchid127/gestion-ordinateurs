@@ -1,4 +1,5 @@
 using GestionOrdinateurs.Shared;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GestionOrdinateurs.API;
@@ -162,6 +163,7 @@ public class OrdinateursController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles = "Admin")]
     public IActionResult CreerOrdinateur(Ordinateur newOrdi)
     {
         Ordinateur ordi = _ordinateurService.CreerOrdinateur(newOrdi.Nom, newOrdi.Stock, newOrdi.Prix, newOrdi.Caracteristiques.RamGo, newOrdi.Caracteristiques.StockageGo, newOrdi.Caracteristiques.Marque);
@@ -170,6 +172,7 @@ public class OrdinateursController : ControllerBase
     }
 
     [HttpPut("{id}")]
+    [Authorize(Roles = "Admin")]
     public IActionResult MettreAJourOrdinateur(int id, Ordinateur newOrdi)
     {
         Ordinateur? ordi = _ordinateurService.MettreAJourOrdinateur(id, newOrdi);
@@ -185,6 +188,7 @@ public class OrdinateursController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin")]
     public IActionResult DeleteComputer(int id)
     {
         Ordinateur? ordi = _ordinateurService.SupprimerOrdinateur(id);

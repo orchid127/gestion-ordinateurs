@@ -1,26 +1,29 @@
-using System.Reflection.Metadata;
-using GestionOrdinateurs.Shared;
+
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 using Microsoft.AspNetCore.Mvc;
 using GestionOrdinateurs.Shared;
+using Microsoft.IdentityModel.Tokens;
 
 namespace AuthentificationApi;
 
 [ApiController]
-[Route("api/[controller]")]
-public class AuthenticationController : ControllerBase
+[Route("auth")]
+public class AuthenticationController(IConfiguration configuration) : ControllerBase
 {
     private readonly IConfiguration _configuration = configuration;
 
     [HttpPost("login")]
-    public IActionResult GenerationTokenJWT(RoleEnum role, string login)
+    public IActionResult GenerationTokenJWT(User.RoleEnum role, string login)
     {
         var jwtKey = _configuration["Jwt:Key"] ?? "";
         var key = Encoding.ASCII.GetBytes(jwtKey);
 
-        return Ok(GenTokenJWT(key, role, userId ?? "deulat_user_id"));
+        return Ok(GenTokenJWT(key, role, login ?? "deulat_user_id"));
     }
 
-    private string GenTokenJWT(byte[] keyP, RoleEnum role, string userId)
+    private string GenTokenJWT(byte[] keyP, User.RoleEnum role, string userId)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
         var claims = new[] {
