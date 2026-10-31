@@ -24,7 +24,7 @@ COPY --from=build /app/out ./
 ENV ASPNETCORE_ENVIRONMENT=Development
 
 # Expose port 5157
-EXPOSE 5157
+EXPOSE 5078
 
 # Define the entry point
 ENTRYPOINT ["dotnet", "GestionOrdinateurs.API.dll"]
