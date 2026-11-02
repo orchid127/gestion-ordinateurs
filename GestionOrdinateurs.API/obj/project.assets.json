@@ -34,6 +34,44 @@
           "Microsoft.AspNetCore.App"
         ]
       },
+      "Microsoft.AspNetCore.Authentication.OpenIdConnect/10.0.14": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "8.19.2"
+        },
+        "compile": {
+          "lib/net10.0/Microsoft.AspNetCore.Authentication.OpenIdConnect.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.AspNetCore.Authentication.OpenIdConnect.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "Microsoft.AspNetCore.Components.WebAssembly.Authentication/10.0.14": {
+        "type": "package",
+        "compile": {
+          "lib/net10.0/Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/Microsoft.AspNetCore.Components.WebAssembly.Authentication.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Microsoft.AspNetCore.Components.WebAssembly.Authentication.props": {}
+        }
+      },
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore/10.0.14": {
         "type": "package",
         "dependencies": {
@@ -1109,6 +1147,44 @@
         "lib/net10.0/Microsoft.AspNetCore.Authentication.JwtBearer.xml",
         "microsoft.aspnetcore.authentication.jwtbearer.10.0.14.nupkg.sha512",
         "microsoft.aspnetcore.authentication.jwtbearer.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.OpenIdConnect/10.0.14": {
+      "sha512": "W5g9xaWjPudw7GNwxCqP9uLxpwE1+LkRf4f8i0aF6Ga1AY3qU2UvBa4+41Opz15sO5oTCLwYYXcvb477Ry8NZQ==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.openidconnect/10.0.14",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net10.0/Microsoft.AspNetCore.Authentication.OpenIdConnect.dll",
+        "lib/net10.0/Microsoft.AspNetCore.Authentication.OpenIdConnect.xml",
+        "microsoft.aspnetcore.authentication.openidconnect.10.0.14.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.openidconnect.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Components.WebAssembly.Authentication/10.0.14": {
+      "sha512": "QY7Cx/ZMskpRS839YN/3mYfKgf2heqZRrr6rS3+WDekVCXzhL5DL7ODZ1NxDxMbrKIFHL0/st7E9WcKI+p2ccw==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.components.webassembly.authentication/10.0.14",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.txt",
+        "build/Microsoft.AspNetCore.Components.WebAssembly.Authentication.props",
+        "build/Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "buildMultiTargeting/Microsoft.AspNetCore.Components.WebAssembly.Authentication.props",
+        "buildTransitive/Microsoft.AspNetCore.Components.WebAssembly.Authentication.props",
+        "lib/net10.0/Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll",
+        "lib/net10.0/Microsoft.AspNetCore.Components.WebAssembly.Authentication.xml",
+        "microsoft.aspnetcore.components.webassembly.authentication.10.0.14.nupkg.sha512",
+        "microsoft.aspnetcore.components.webassembly.authentication.nuspec",
+        "staticwebassets/AuthenticationService.js"
       ]
     },
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore/10.0.14": {
@@ -3293,6 +3369,8 @@
     "net10.0": [
       "GestionOrdinateurs.Shared >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 10.0.14",
+      "Microsoft.AspNetCore.Authentication.OpenIdConnect >= 10.0.14",
+      "Microsoft.AspNetCore.Components.WebAssembly.Authentication >= 10.0.14",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 10.0.14",
       "Microsoft.AspNetCore.OpenApi >= 10.0.12",
       "Microsoft.EntityFrameworkCore >= 10.0.14",
@@ -3350,6 +3428,14 @@
         "targetAlias": "net10.0",
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
+            "target": "Package",
+            "version": "[10.0.14, )"
+          },
+          "Microsoft.AspNetCore.Authentication.OpenIdConnect": {
+            "target": "Package",
+            "version": "[10.0.14, )"
+          },
+          "Microsoft.AspNetCore.Components.WebAssembly.Authentication": {
             "target": "Package",
             "version": "[10.0.14, )"
           },

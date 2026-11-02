@@ -65,36 +65,42 @@ builder.Services.AddAuthentication(options =>
     options.SaveToken = true;
     options.TokenValidationParameters = new TokenValidationParameters
     {
+        ValidateIssuer = true,
+        ValidIssuer = $"{builder.Configuration["Keycloak:BaseUrl"]}/realms/{builder.Configuration["Keycloak:Realm"]}",
+
+        ValidateAudience = true,
+        ValidAudience = "account",
+
         ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(key),
-        ValidateIssuer = false,
-        ValidateAudience = false
-    };
-    options.Events = new JwtBearerEvents
-    {
-        OnTokenValidated = context =>
+        ValidateLifetime = false,
+
+        IssuerSigningKeyResolver = (token, securityToken, kid, parameters) =>
         {
-            Console.WriteLine($"Utilisateur utilisant un Token Valide --- {context.Principal?.Identity?.Name ?? "Anonymous"}");
-            return Task.CompletedTask;
-        },
-        OnAuthenticationFailed = context =>
-        {
-            Console.WriteLine("Token Invalide");
-            return Task.CompletedTask;
+            var client = new HttpClient();
+            var keyUri = $"{parameters.ValidIssuer}/protocol/openid-connect/certs";
+            var response = client.GetAsync(keyUri).Result;
+            var keys = new JsonWebKeySet(response.Content.ReadAsStringAsync().Result);
+
+            return keys.GetSigningKeys();
         }
     };
 });
 
-var app = builder.Build();
 
-app.UseSwagger();
-app.UseSwaggerUI();
+builder.Services.AddHttpClient();
+builder.Services.AddScoped<KeycloakAuthService>();
+
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
+
+app.UseHttpsRedirection();
 
 //Initialisation de la base de données
 using (var scope = app.Services.CreateScope())
@@ -114,6 +120,9 @@ using (var scope = app.Services.CreateScope())
         db.SaveChanges();
     }
 }
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 app.UseCors("AllowBlazorClient");

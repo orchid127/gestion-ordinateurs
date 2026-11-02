@@ -4,15 +4,29 @@ services:
     image: postgres:15
     container_name: postgres_db
     environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: 1234
-      POSTGRES_DB: GestionOrdinateursDb
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: keycloakpassword
+      POSTGRES_DB: keycloak_db
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
-      - appnet
+      - keycloak_network
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - 5050:80
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    networks:
+      - keycloak_network
+    depends_on:
+      - postgres
 
   keycloak:
     image: quay.io/keycloak/keycloak:26.8.1
@@ -97,9 +111,12 @@ services:
       - appnet
 
 networks:
+  keycloak_network:
+    driver: bridge
   appnet:
     driver: bridge
 
 volumes:
   postgres_data:
   keycloak_data:
+  pgadmin_data:

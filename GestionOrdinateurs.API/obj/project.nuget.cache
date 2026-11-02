@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "xIzy35Y+rnw=",
+  "dgSpecHash": "25nXdXUUFrA=",
   "success": true,
   "projectFilePath": "/home/habenaria/Documents/school/2026-2027/c-sharp-dot-net/GestionOrdinateurs/GestionOrdinateurs.API/GestionOrdinateurs.API.csproj",
   "expectedPackageFiles": [
     "/home/habenaria/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/home/habenaria/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/10.0.14/microsoft.aspnetcore.authentication.jwtbearer.10.0.14.nupkg.sha512",
+    "/home/habenaria/.nuget/packages/microsoft.aspnetcore.authentication.openidconnect/10.0.14/microsoft.aspnetcore.authentication.openidconnect.10.0.14.nupkg.sha512",
+    "/home/habenaria/.nuget/packages/microsoft.aspnetcore.components.webassembly.authentication/10.0.14/microsoft.aspnetcore.components.webassembly.authentication.10.0.14.nupkg.sha512",
     "/home/habenaria/.nuget/packages/microsoft.aspnetcore.identity.entityframeworkcore/10.0.14/microsoft.aspnetcore.identity.entityframeworkcore.10.0.14.nupkg.sha512",
     "/home/habenaria/.nuget/packages/microsoft.aspnetcore.openapi/10.0.12/microsoft.aspnetcore.openapi.10.0.12.nupkg.sha512",
     "/home/habenaria/.nuget/packages/microsoft.bcl.cryptography/10.0.2/microsoft.bcl.cryptography.10.0.2.nupkg.sha512",
